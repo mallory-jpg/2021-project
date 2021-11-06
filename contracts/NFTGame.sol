@@ -6,6 +6,6 @@ import "hardhat/console.sol";
 
 contract NFTGame {
   constructor() {
-    console.log("THIS IS MY GAME CONTRACT. NICE.");
+    console.log("GAME CONTRACT CONSTRUCTED.");
   }
 }
