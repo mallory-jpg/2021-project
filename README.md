@@ -1,31 +1,41 @@
 # Into the Metaverse
 Mint your hero in this turn-based NFT browser game.
 
-[Link to Course](https://app.buildspace.so/courses/CO5cc2751b-e878-41c4-99fa-a614dc910ee9/lessons/LEc40235e7-8135-4e55-8b7c-6b17ffd15cbd)
-
 ## Overview
 The game is based on Ethereum smart contracts (a piece of code that lives on the Ethereum blockchain). As its deployed to the blockchain, anyone in the world with a computer or smart phone can access it, run the smart contract, and play the game. The client website allows players to connect their Ethereum wallets and play the game!
+
+The goal of the game is to **Kill the Final Boss**. 
+
+* Players begin by minting a character NFT. Each minted character has a certain *HP* and *Attack Damage*.
+* Players command their character to attack the Final Boss and inflict damage. Watch out: the Boss fights back!
+* Each character NFT has its attributes (like HP, damage, etc.) stored directly as part of the NFT.
+## How to Play
+1. Connect your wallet
+2. Choose a character NFT to mint 
+
+## Rules
+* Each player can only have 1 NFT character in their wallet
+* If a character's HP goes below zero, it dies >>> GAME OVER.
+* Many players must work together to win!
+
+### How to Win
+Players must work together to attack the boss and kill it by draining its HP to 0.
 
 ## Development
 ### Dev Environment
 Tools:
 * Ethereum blockchain
-* buildspace (build tutorial)
+* [buildspace](https://app.buildspace.so/courses/CO5cc2751b-e878-41c4-99fa-a614dc910ee9/lessons/LEc40235e7-8135-4e55-8b7c-6b17ffd15cbd)
 * Rarible
 * OpenSea
-* HardHat (compile & test smart contracts locally)
+* [HardHat](https://hardhat.org/tutorial/setting-up-the-environment.html)
 * OpenZeppelin
 
-To install [HardHat](https://hardhat.org/tutorial/setting-up-the-environment.html), you must have node/npm. After downloading & installing npm, create & move into the directory for your game, initialize npm, & install HardHat:
+To install HardHat (to compile and test smart contracts locally), you must have node/npm. After downloading & installing npm, create & move into the directory for your game, initialize npm, & install HardHat:
 ```
 npm init -y
 npm install --save-dev hardhat
 ```
 
-## Rules
-
-### How to Setup/Use
-
-### How to Win
 
 
