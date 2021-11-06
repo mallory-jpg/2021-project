@@ -43,5 +43,10 @@ npm init -y
 npm install --save-dev hardhat
 ```
 
-
+### Staging & Testing Environment
+* OpenSea TestNets
+* MyCrypto ETH faucet
+* Rinkeby TestNet & [TestNet Explorer](https://rinkeby.etherscan.io/)
+* AlchemyAPI 
+* MetaMask ETH wallet
 
