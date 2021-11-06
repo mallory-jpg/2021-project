@@ -6,7 +6,8 @@ Mint your hero in this turn-based NFT browser game.
 ## Overview
 The game is based on Ethereum smart contracts (a piece of code that lives on the Ethereum blockchain). As its deployed to the blockchain, anyone in the world with a computer or smart phone can access it, run the smart contract, and play the game. The client website allows players to connect their Ethereum wallets and play the game!
 
-### How I Created It
+## Development
+### Dev Environment
 Tools:
 * Ethereum blockchain
 * buildspace (build tutorial)
@@ -20,7 +21,6 @@ To install [HardHat](https://hardhat.org/tutorial/setting-up-the-environment.htm
 npm init -y
 npm install --save-dev hardhat
 ```
-
 
 ## Rules
 
