@@ -3,15 +3,15 @@ const main = async () => {
     const gameContractFactory = await hre.ethers.getContractFactory('NFTGame'); // compile contract & generate necessary files for artifacts directory
     const gameContract = await gameContractFactory.deploy(
         ["MightyChondria", "IcedCovfefe", "TransPride", "CriticalRaceTheory", "Textbook"],  // Names
-        ["https://imgur.com/URVzM6G",                                           // Images
-            "https://imgur.com/aLpdKSd",
-            "https://imgur.com/uzLZdBK",
-            "https://imgur.com/m9Vvz0i",
-            "https://images.app.goo.gl/TABGKymF8j73aass7"],
+        ["https://i.imgur.com/URVzM6G.png",                                           // Images
+            "https://i.imgur.com/aLpdKSd.jpeg",
+            "https://i.imgur.com/uzLZdBK.jpeg",
+            "https://i.imgur.com/m9Vvz0i.jpeg",
+            "https://media.wired.com/photos/5926f79caf95806129f51367/master/pass/GettyImages-532456845.jpg"],
         [100, 200, 300, 300, 500],                                                        // HP values
         [40, 90, 120, 200, 400],                                                           // attack damage values
          "Mackayleigh Karen",                                             // Boss name
-        "https://images.app.goo.gl/4N3Xr1eo4rQkNLet7",                                      // Boss image
+        "https://i.kym-cdn.com/entries/icons/original/000/018/181/managerhaircutt.jpg",                                      // Boss image
         10000,                                                                              // Boss HP
         20                                                                                  // Boss attack damage
     );
