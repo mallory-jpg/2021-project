@@ -91,9 +91,8 @@ contract NFTGame is ERC721 {
       }
       // increment tokenIds with first NFT having an ID of 1
       _tokenIds.increment();
-      // calls NFT minting event
-      emit CharacterNFTMinted(msg.sender, newItemId, _characterIndex);
     }
+    
     // function returns minted NFT based on character index, which tells us which character the user wants
     function mintCharacterNFT(uint _characterIndex) external {
       // Get current tokenId (starting at 1) - a state variable
@@ -121,6 +120,8 @@ contract NFTGame is ERC721 {
 
       // Increment the tokenId for the next person that uses it
       _tokenIds.increment();
+      // calls NFT minting event
+      emit CharacterNFTMinted(msg.sender, newItemId, _characterIndex); // TODO: Undeclared identifiers
   }
     function tokenURI(uint256 _tokenId) public view override returns (string memory) {
       CharacterAttributes memory charAttributes = nftHolderAttributes[_tokenId]; // retrieves specific NFT data using _tokenID
@@ -182,6 +183,8 @@ contract NFTGame is ERC721 {
         }
       console.log("Player attacked boss. New boss hp: %s", bigBoss.hp);
       console.log("Boss attacked player. New player hp: %s\n", player.hp);
+     
+      // fires when character officially attacks the Boss -> returns new HP for Boss and character 
       emit AttackComplete(bigBoss.hp, player.hp);
     }
     function checkIfUserHasNFT() public view returns (CharacterAttributes memory) {
@@ -206,4 +209,3 @@ contract NFTGame is ERC721 {
       return bigBoss;
     }
   }
-}

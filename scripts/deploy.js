@@ -9,7 +9,11 @@ const main = async () => {
             "https://imgur.com/m9Vvz0i",
             "https://images.app.goo.gl/TABGKymF8j73aass7"],
         [100, 200, 300, 300, 500],                                                        // HP values
-        [40, 90, 120, 200, 400]                                                           // attack damage values
+        [40, 90, 120, 200, 400],                                                           // attack damage values
+         "Mackayleigh Karen",                                             // Boss name
+        "https://images.app.goo.gl/4N3Xr1eo4rQkNLet7",                                      // Boss image
+        10000,                                                                              // Boss HP
+        20                                                                                  // Boss attack damage
     );
     
     // HardHat generates local ETH network for this contract - each run is a fresh blockchain. Clean slate allows for easier debug.
