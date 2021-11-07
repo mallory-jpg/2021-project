@@ -56,3 +56,5 @@ npm install --save-dev hardhat
 * Rinkeby TestNet & [TestNet Explorer](https://rinkeby.etherscan.io/)
 * AlchemyAPI 
 * MetaMask ETH wallet
+
+Note: Getting faux-ETH via Rinkeby's test wallet might take awhile! Mine took about 48 hours due to the volume of requests.
