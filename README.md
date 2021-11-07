@@ -4,7 +4,7 @@ Mint your hero in this turn-based NFT browser game.
 ## Overview
 The game is based on Ethereum smart contracts (a piece of code that lives on the Ethereum blockchain). As its deployed to the blockchain, anyone in the world with a computer or smart phone can access it, run the smart contract, and play the game. The client website allows players to connect their Ethereum wallets and play the game!
 
-The goal of the game is to **Kill the Final Boss**. 
+The goal of the game is to **Unalive. The. Boss**. 🗡 ☠️ 🔪
 
 * Players begin by minting a character NFT. Each minted character has a certain *HP* and *Attack Damage*.
 * Players command their character to attack the Final Boss and inflict damage. Watch out: the Boss fights back!
