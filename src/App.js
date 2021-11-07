@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { CONTRACT_ADDRESS } from './constants';
+import NFTGame from './utils/NFTGame.json';
+import { ethers } from 'ethers';
+import { CONTRACT_ADDRESS, transformCharacterData } from './constants';
 import SelectCharacter from './Components/SelectCharacter';
 import twitterLogo from './assets/twitter-logo.svg';
 
@@ -100,6 +102,41 @@ const App = () => {
     useEffect(() => {
         checkIfWalletIsConnected();
     }, []);
+
+    useEffect(() => {
+        /*
+         * Function call that interacts with our smart contract.
+         * Declaring async function to run inside hook this way because async & useEffect conflict otherwise
+         */
+        const fetchNFTMetadata = async () => {
+            console.log('Checking for Character NFT on address:', currentAccount);
+            // main logic for contract call and setup of Ethers object
+            const provider = new ethers.providers.Web3Provider(window.ethereum); // communicate with Ethereum nodes using Provider
+            const signer = provider.getSigner(); // signer sign messages & transactions & send to ETH network to execute state-changin operations 
+            // create contract object
+            const gameContract = new ethers.Contract(
+                CONTRACT_ADDRESS,
+                NFTGame.abi,
+                signer
+            );
+
+            const txn = await gameContract.checkIfUserHasNFT();
+            if (txn.name) {
+                console.log('User has character NFT');
+                setCharacterNFT(transformCharacterData(txn)); // TODO Undefined
+            } else {
+                console.log('No character NFT found');
+            }
+        };
+
+        /*
+         * Only runs if wallet is connected
+         */
+        if (currentAccount) {
+            console.log('CurrentAccount:', currentAccount);
+            fetchNFTMetadata();
+        }
+    }, [currentAccount]); // currentAccount = user's public wallet address
 
     return (
         <div className="App">
