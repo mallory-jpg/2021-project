@@ -37,7 +37,7 @@ Players must work together to attack the boss and kill it by draining its HP to 
 * If a character's HP goes below zero, it dies >>> GAME OVER.
 
 # Development
-### Dev Tools
+## Dev Tools
 * Ethereum blockchain
 * [buildspace](https://app.buildspace.so/courses/CO5cc2751b-e878-41c4-99fa-a614dc910ee9/lessons/LEc40235e7-8135-4e55-8b7c-6b17ffd15cbd)
 * OpenSea or Rarible NFT marketplaces
@@ -50,7 +50,8 @@ npm init -y
 npm install --save-dev hardhat
 ```
 
-### Staging & Testing Tools
+## Staging & Testing 
+### Tools
 * OpenSea TestNets
 * MyCrypto ETH faucet
 * Rinkeby TestNet & [TestNet Explorer](https://rinkeby.etherscan.io/)
@@ -59,3 +60,11 @@ npm install --save-dev hardhat
 * Replit - fork [this](https://github.com/buildspace/buildspace-nft-game-starter) repo
 
 Note: Getting faux-ETH via Rinkeby's test wallet might take awhile! Mine took about 48 hours due to the volume of requests.
+
+### Updating Smart Contracts
+When making changes to immutable smart contracts, you must...
+* re-deploy (which will reset all variables & lose all NFT data): `npx hardhat run scripts/deploy.js --network rinkeby`
+* update the contract address (from the console log) on the frontend: change `contractAddress` in `constants.js`
+* then update the ABI file on the frontend (just copy from `artifacts/contracts/<game>.sol/<game>.json`)
+
+
