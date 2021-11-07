@@ -10,19 +10,11 @@ const main = async () => {
             "https://images.app.goo.gl/TABGKymF8j73aass7"],
         [100, 200, 300, 300, 500],                                                        // HP values
         [40, 90, 120, 200, 400]                                                           // attack damage values
-    ); // HardHat generates local ETH network for this contract - each run is a fresh blockchain. Clean slate allows for easier debug.
+    );
+    
+    // HardHat generates local ETH network for this contract - each run is a fresh blockchain. Clean slate allows for easier debug.
     await gameContract.deployed(); // wait until contract is mined and deployed to local blockchain to run constructor
     console.log("Contract deployed to:", gameContract.address); // gives address of contracts on blockchain
-
-    let txn;
-    // We only have three characters.
-    // an NFT w/ the character at index 2 of our array.
-    txn = await gameContract.mintCharacterNFT(2);
-    await txn.wait();
-
-    // Get the value of the NFT's URI.
-    let returnedTokenUri = await gameContract.tokenURI(1); // tokenURI function inherited from ERC721
-    console.log("Token URI:", returnedTokenUri);
 };
 
 const runMain = async () => {

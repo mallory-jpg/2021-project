@@ -21,7 +21,7 @@ Each character has the following attributes:
 * Attack Damage value
 
 ### How to Win
-Players must work together to attack the boss and kill it by draining its HP to 0.
+Players must work together to attack the boss and kill it by draining its HP to 0. Moral of the story: we can't do this alone.
 
 ## Rules
 * Each player can only have 1 NFT character in their wallet
