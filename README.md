@@ -67,4 +67,6 @@ When making changes to immutable smart contracts, you must...
 * update the contract address (from the console log) on the frontend: change `contractAddress` in `constants.js`
 * then update the ABI file on the frontend (just copy from `artifacts/contracts/<game>.sol/<game>.json`)
 
+After implementation of `checkIfWalletIsConnected()` web app console looks like this:
+<img width="1440" alt="Screen Shot 2021-11-07 at 10 11 31 AM" src="https://user-images.githubusercontent.com/65197541/140652935-348b8529-bdd8-45d9-aa72-492d1c38c9e6.png">
 
