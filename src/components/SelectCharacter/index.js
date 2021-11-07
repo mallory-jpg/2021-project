@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './SelectCharacter.css';
+import React, { useEffect, useState } from 'react';
+import './SelectCharacter.css';
+import { ethers } from 'ethers';
+import { CONTRACT_ADDRESS, transformCharacterData } from '../../constants';
+import NFTGame from '../../utils/NFTGame.json';
 
 /*
  * Don't worry about setCharacterNFT just yet, we will talk about it soon!
