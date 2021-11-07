@@ -36,7 +36,7 @@ Players must work together to attack the boss and kill it by draining its HP to 
 * Each player can only have 1 NFT character in their wallet
 * If a character's HP goes below zero, it dies >>> GAME OVER.
 
-## Development
+# Development
 ### Dev Tools
 * Ethereum blockchain
 * [buildspace](https://app.buildspace.so/courses/CO5cc2751b-e878-41c4-99fa-a614dc910ee9/lessons/LEc40235e7-8135-4e55-8b7c-6b17ffd15cbd)
@@ -56,5 +56,6 @@ npm install --save-dev hardhat
 * Rinkeby TestNet & [TestNet Explorer](https://rinkeby.etherscan.io/)
 * AlchemyAPI 
 * MetaMask ETH wallet
+* Replit - fork [this](https://github.com/buildspace/buildspace-nft-game-starter) repo
 
 Note: Getting faux-ETH via Rinkeby's test wallet might take awhile! Mine took about 48 hours due to the volume of requests.
