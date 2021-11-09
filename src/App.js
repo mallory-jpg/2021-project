@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import NFTGame from './utils/NFTGame.json';
+import Arena from './Components/Arena';
 import { ethers } from 'ethers';
 import { CONTRACT_ADDRESS, transformCharacterData } from './constants';
 import SelectCharacter from './Components/SelectCharacter';
 import twitterLogo from './assets/twitter-logo.svg';
+// import LoadingIndicator from './Components/LoadingIndicator';
 
 // Constants
 const TWITTER_HANDLE = 'culbert_mallory';
@@ -13,8 +15,8 @@ const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 const App = () => {
     // State
     const [currentAccount, setCurrentAccount] = useState(null);
-
     const [characterNFT, setCharacterNFT] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     // Actions
     const checkIfWalletIsConnected = async () => {
@@ -23,6 +25,7 @@ const App = () => {
 
             if (!ethereum) {
                 console.log('Make sure you have MetaMask!');
+                setIsLoading(false);
                 return;
             } else {
                 console.log('We have the ethereum object', ethereum);
@@ -40,13 +43,16 @@ const App = () => {
         } catch (error) {
             console.log(error);
         }
+        // release state property
+        setIsLoading(false);
     };
 
     // Render Methods
     const renderContent = () => {
-        /*
-         * Scenario #1
-         */
+        // While loading, render out LoadingIndicator
+        if (isLoading) {
+            return <LoadingIndicator />;
+        }
         if (!currentAccount) {
             return (
                 <div className="connect-wallet-container">
@@ -62,17 +68,15 @@ const App = () => {
                     </button>
                 </div>
             );
-            /*
-             * Scenario #2
-             */
+
         } else if (currentAccount && !characterNFT) {
             return <SelectCharacter setCharacterNFT={setCharacterNFT} />;
+        // If user has characterNFT & a connected wallet -> we #fighting!
+        } else if (currentAccount && characterNFT) {
+            return <Arena characterNFT={characterNFT} setCharacterNFT={setCharacterNFT} />;
         }
     };
 
-    /*
-     * Implement your connectWallet method here
-     */
     const connectWalletAction = async () => {
         try {
             const { ethereum } = window;
@@ -82,16 +86,12 @@ const App = () => {
                 return;
             }
 
-            /*
-             * Fancy method to request access to account.
-             */
+            // request access to account
             const accounts = await ethereum.request({
                 method: 'eth_requestAccounts',
             });
-
-            /*
-             * Boom! This should print out public address once we authorize Metamask.
-             */
+            
+            // print public address after MetaMask authorization
             console.log('Connected', accounts[0]);
             setCurrentAccount(accounts[0]);
         } catch (error) {
@@ -100,6 +100,7 @@ const App = () => {
     };
 
     useEffect(() => {
+        setIsLoading(true);
         checkIfWalletIsConnected();
     }, []);
 
@@ -123,10 +124,11 @@ const App = () => {
             const txn = await gameContract.checkIfUserHasNFT();
             if (txn.name) {
                 console.log('User has character NFT');
-                setCharacterNFT(transformCharacterData(txn)); // TODO Undefined
+                setCharacterNFT(transformCharacterData(txn)); 
             } else {
                 console.log('No character NFT found');
             }
+            setIsLoading(false);
         };
 
         /*
