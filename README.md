@@ -67,7 +67,6 @@ When making changes to immutable smart contracts, you must...
 * update the contract address (from the console log) on the frontend: change `contractAddress` in `constants.js`
 * then update the ABI file on the frontend (just copy from `artifacts/contracts/<game>.sol/<game>.json`)
 
-Page inspection after implementing Select Character screen:
-<img width="1023" alt="Screen Shot 2021-11-07 at 5 19 59 PM" src="https://user-images.githubusercontent.com/65197541/140665660-1ee3476b-cae5-455a-9473-ac4c3e6f304b.png">
+
 
 
