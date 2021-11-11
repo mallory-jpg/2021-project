@@ -11,7 +11,7 @@ The goal of the game is to **Unalive. The. Boss**. 🗡 ☠️ 🔪
 * An unlimited number of NFTs of each character can be minted
 
 ## How to Play
-1. Go the the [game site](https://nft-game-starter-project.malloryculbert.repl.co/)
+1. Go the the [game site](https://2021-project.malloryculbert.repl.co/)
 2. Connect your Ethereum wallet
 3. Choose a character NFT to mint
 4. Work together to fight The Final Boss, *Mackayleigh Karen*   
