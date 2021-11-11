@@ -3,7 +3,7 @@ import { ethers } from 'ethers';
 import { CONTRACT_ADDRESS, transformCharacterData } from '../../constants';
 import NFTGame from '../../utils/NFTGame.json';
 import './Arena.css';
-import LoadingIndicator from './Components/LoadingIndicator';
+// import LoadingIndicator from './Components/LoadingIndicator';
 
 // pass in CharacterNFT data to see card in UI
 // pass in setCharacterNFT?
@@ -13,7 +13,6 @@ const Arena = ({ characterNFT, setCharacterNFT }) => {
     const [boss, setBoss] = useState(null);
     // const [characterNFT, setCharacterNFT] = useState(null);
     const [attackState, setAttackState] = useState('');
-    const [showToast, setShowToast] = useState(false);
 
     const runAttackAction = async () => {
         // attack states: attack, hit, ' ' (default)
@@ -25,10 +24,6 @@ const Arena = ({ characterNFT, setCharacterNFT }) => {
                 await attackTxn.wait();                             // UI won't update until transaction is mined
                 console.log('attackTxn:', attackTxn);
                 setAttackState('hit');
-                setShowToast(true);
-                setTimeout(() => {
-                    setShowToast(false);
-                }, 5000);
             }
         } catch (error) {
             console.error('Error attacking boss:', error);
@@ -94,12 +89,6 @@ const Arena = ({ characterNFT, setCharacterNFT }) => {
 
     return (
         <div className="arena-container">
-            {boss && characterNFT && (
-                <div id="toast" className={showToast ? 'show' : ''}>
-                    <div id="desc">{`💥 ${boss.name} was hit for ${characterNFT.attackDamage}!`}</div>
-                </div>
-            )}
-
             {boss && (
                 <div className="boss-container">
                     {/* AttackState part of className! */}
@@ -120,7 +109,7 @@ const Arena = ({ characterNFT, setCharacterNFT }) => {
                     </div>
                     {attackState === 'attacking' && (
                         <div className="loading-indicator">
-                            <LoadingIndicator />
+
                             <p>Attacking ⚔️</p>
                         </div>
                     )}
@@ -148,14 +137,12 @@ const Arena = ({ characterNFT, setCharacterNFT }) => {
                             </div>
                         </div>
                     </div>
-                    {/* <div className="active-players">
-          <h2>Active Players</h2>
-          <div className="players-list">{renderActivePlayersList()}</div>
-        </div> */}
                 </div>
             )}
         </div>
     );
 };
+
+// line 112: <LoadingIndicator />
 
 export default Arena;

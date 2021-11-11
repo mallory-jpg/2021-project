@@ -6,7 +6,7 @@ import { ethers } from 'ethers';
 import { CONTRACT_ADDRESS, transformCharacterData } from './constants';
 import SelectCharacter from './Components/SelectCharacter';
 import twitterLogo from './assets/twitter-logo.svg';
-// import LoadingIndicator from './Components/LoadingIndicator';
+import LoadingIndicator from './Components/LoadingIndicator';
 
 // Constants
 const TWITTER_HANDLE = 'culbert_mallory';
@@ -53,6 +53,9 @@ const App = () => {
         if (isLoading) {
             return <LoadingIndicator />;
         }
+        /*
+         * Scenario #1
+         */
         if (!currentAccount) {
             return (
                 <div className="connect-wallet-container">
@@ -71,12 +74,15 @@ const App = () => {
 
         } else if (currentAccount && !characterNFT) {
             return <SelectCharacter setCharacterNFT={setCharacterNFT} />;
-        // If user has characterNFT & a connected wallet -> we #fighting!
+            // If user has characterNFT & a connected wallet -> we #fighting!
         } else if (currentAccount && characterNFT) {
             return <Arena characterNFT={characterNFT} setCharacterNFT={setCharacterNFT} />;
         }
     };
 
+    /*
+     * Implement your connectWallet method here
+     */
     const connectWalletAction = async () => {
         try {
             const { ethereum } = window;
@@ -86,12 +92,16 @@ const App = () => {
                 return;
             }
 
-            // request access to account
+            /*
+             * Fancy method to request access to account.
+             */
             const accounts = await ethereum.request({
                 method: 'eth_requestAccounts',
             });
-            
-            // print public address after MetaMask authorization
+
+            /*
+             * Boom! This should print out public address once we authorize Metamask.
+             */
             console.log('Connected', accounts[0]);
             setCurrentAccount(accounts[0]);
         } catch (error) {
@@ -124,7 +134,7 @@ const App = () => {
             const txn = await gameContract.checkIfUserHasNFT();
             if (txn.name) {
                 console.log('User has character NFT');
-                setCharacterNFT(transformCharacterData(txn)); 
+                setCharacterNFT(transformCharacterData(txn));
             } else {
                 console.log('No character NFT found');
             }

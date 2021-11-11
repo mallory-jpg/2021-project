@@ -3,7 +3,7 @@ import './SelectCharacter.css';
 import { ethers } from 'ethers';
 import { CONTRACT_ADDRESS, transformCharacterData } from '../../constants';
 import NFTGame from '../../utils/NFTGame.json';
-import LoadingIndicator from './Components/LoadingIndicator';
+// import LoadingIndicator from './Components/LoadingIndicator';
 import './SelectCharacter.css';
 
 const SelectCharacter = ({ setCharacterNFT }) => {
@@ -113,19 +113,6 @@ const SelectCharacter = ({ setCharacterNFT }) => {
             {characters.length > 0 && (
                 <div className="character-grid">{renderCharacters()}</div>
             )}
-            {/* Only show our loading state if mintingCharacter is true */}
-            {mintingCharacter && (
-                <div className="loading">
-                    <div className="indicator">
-                        <LoadingIndicator />
-                        <p>Minting In Progress...</p>
-                    </div>
-                    <img
-                        src="https://media1.giphy.com/media/Q8yVhekmYfdZvyojKx/giphy.gif?cid=ecf05e47k8h41kmgubdok3raoc8rto2xue8p4n2c1h8f72dq&rid=giphy.gif&ct=g"
-                        alt="Minting loading indicator"
-                    />
-                </div>
-            )}
         </div>
     );
 };
@@ -134,3 +121,18 @@ const SelectCharacter = ({ setCharacterNFT }) => {
 
 export default SelectCharacter;
 
+/*
+            {* Only show our loading state if mintingCharacter is true *}
+            {mintingCharacter && (
+                <div className="loading-indicator">
+
+                        <LoadingIndicator />
+                        <p>Minting In Progress...</p>
+
+                    <img
+                        src="https://media1.giphy.com/media/Q8yVhekmYfdZvyojKx/giphy.gif?cid=ecf05e47k8h41kmgubdok3raoc8rto2xue8p4n2c1h8f72dq&rid=giphy.gif&ct=g"
+                        alt="Minting loading indicator"
+                    />
+                </div>
+            )}
+ */
