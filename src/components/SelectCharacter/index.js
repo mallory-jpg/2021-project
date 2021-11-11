@@ -113,7 +113,9 @@ const SelectCharacter = ({ setCharacterNFT }) => {
             {characters.length > 0 && (
                 <div className="character-grid">{renderCharacters()}</div>
             )}
+            {mintingCharacter}
         </div>
+
     );
 };
 
