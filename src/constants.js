@@ -1,4 +1,4 @@
-const CONTRACT_ADDRESS = '0x8b9bA4d62Cd6cd076c01254e23E3E083a9465C97';
+const CONTRACT_ADDRESS = '0xA50650C21299F7908360A9EfA9365DCae17B9899';
 
 const transformCharacterData = (characterData) => {
     return {
