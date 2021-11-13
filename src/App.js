@@ -60,14 +60,14 @@ const App = () => {
             return (
                 <div className="connect-wallet-container">
                     <img
-                        src="https://c.tenor.com/1LxcxyL9wXAAAAAC/karen-ok-karen.gif"
-                        alt="Karens Gonna Karen"
+                        src="https://c.tenor.com/lufltc-TdiIAAAAC/karen-ok-karen.gif"
+                        alt="Karen wants to speak to the manager"
                     />
                     <button
                         className="cta-button connect-wallet-button"
                         onClick={connectWalletAction}
                     >
-                        Connect Wallet To Speak To The Manager
+                        Connect Wallet If *You* Are the Manager
                     </button>
                 </div>
             );
